@@ -1,0 +1,31 @@
+@{
+    ViewData["Title"] = "Login/Register Page";
+}
+
+@model User
+
+<form action="/register" method="Post">
+    <h3 class="text-center">Register</h3>
+    <div class="form-group">
+        <label for="FirstName">Name:</label>
+        <span asp-validation-for="Name" style="color: red; font-style: italic; font-size: 10pt;"></span>
+        <input type="text" class="form-control" name="Name" aria-describedby="Name" placeholder="Please enter your Name">
+    </div>
+    <div class="form-group">
+        <label for="Email">Email:</label>
+        <span asp-validation-for="Email" style="color: red; font-style: italic; font-size: 10pt;"></span>
+        <input type="email" class="form-control" name="Email" placeholder="Please enter your Email">
+    </div>
+    <div class="form-group">
+        <label for="Password">Password:</label>
+        <span asp-validation-for="Password" style="color: red; font-style: italic; font-size: 10pt;"></span>
+        <input type="password" class="form-control" name="Password" placeholder="Please enter a Password">
+        <small id="passwordHelp" class="form-text text-muted">Password must be at least 8 characters</small>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password Confirm:</label>
+        <span asp-validation-for="Confirm" style="color: red; font-style: italic; font-size: 10pt;"></span>
+        <input type="password" class="form-control" name="Confirm" placeholder="Please confirm Password">
+    </div>
+    <button type="submit" class="btn btn-success">Register</button>
+</form>

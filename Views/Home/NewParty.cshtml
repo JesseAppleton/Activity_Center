@@ -1,0 +1,62 @@
+@{
+    ViewData["Title"] = "New Activity";
+}
+
+@model Party
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <h1 class="navbar-brand">Activities Center</h1>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/party/new">New Activity <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<br>
+<form action= "/party" method ="Post">
+    <h3 class="text-center">Create an Activity</h3>
+    <div class="form-group">
+        <label for="PartyName">Title:</label>
+        <span asp-validation-for="PartyName" style="color: red; font-style: italic; font-size: 10pt;"></span>
+        <input type="text" class="form-control" name="PartyName" aria-describedby="PartyName" placeholder="Please enter the name of your activity">
+    </div>
+    <div class="form-group">
+        <label for="PartyDate">Date and Time:</label>
+        <span asp-validation-for="PartyDate" style="color: red; font-style: italic; font-size: 10pt;"></span>
+        <input type="datetime-local" class="form-control" name="PartyDate" placeholder="Please enter the date of your activity">
+    </div>
+    <div class="form-group">
+        <label for="Duration">Duration:</label>
+        <span asp-validation-for="Duration" style="color: red; font-style: italic; font-size: 10pt;"></span>
+        <input type="number" class="form-control" name="Duration" placeholder="Please enter a the duration of your activity">
+    </div>
+    <div class="form-group">
+        <label for="TimeFormat">Time Format:</label>
+        <span asp-validation-for="TimeFormat" style="color: red; font-style: italic; font-size: 10pt;"></span>
+        <select name = "TimeFormat">
+            <option value=""></option>
+            <option value="Minutes">Minute(s)</option>
+            <option value="Hours">Hour(s)</option>
+            <option value="Days">Day(s)</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="Description" >Description:</label>
+        <span asp-validation-for="Description" style="color: red; font-style: italic; font-size: 10pt;"></span>
+        <br>
+        <textarea name="Description" cols="60" rows="8"></textarea>
+    </div>
+    <button type="submit" class="btn btn-block btn-success">Create Activity</button>
+</form>
